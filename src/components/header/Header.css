@@ -1,7 +1,27 @@
+@media only screen and (min-width: 1920px) {
+    .remarks {
+        margin-right: -150px;
+    }
+
+    .logo {
+        margin-left: -130px;
+    }
+}
+
 .remarks {
     display: flex;
     flex-direction: row-reverse;
-    margin-right: 3.5%;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
 }
 
 #remarks-bar div {
@@ -35,3 +55,4 @@
 .holiday {
     background-color: #C04000;
 }
+

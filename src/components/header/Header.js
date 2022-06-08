@@ -14,7 +14,6 @@ import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 
 
-
 function Header () {
 
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -29,13 +28,15 @@ function Header () {
 
     return (
         <AppBar position="fixed" style={{ background: '#F5F5F5' }}>
-            <Container maxWidth="xl">
+            <Container className='container' maxWidth="xl">
                 <Toolbar disableGutters>
 
-                    <Menus />
-                    <a href='/'><img src={Logo} alt='logo'/></a>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}></Box>
+                    <div className='logo'> 
+                        <Menus className='menu-icon'> </Menus>
+                        <a className='logo-icon' href='/'><img src={Logo} alt='logo'/></a>
+                    </div>
+                    
+                    
 
                     <Box className='remarks' sx={{ flexGrow: 20 }}>
                         <Tooltip title="Show Remarks">

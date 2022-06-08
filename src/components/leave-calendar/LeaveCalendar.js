@@ -43,8 +43,6 @@ export default class LeaveCalendar extends React.Component {
                         aspectRatio= '1.8'
                         slotMinTime='08:00:00'
                         slotMaxTime='19:00:00'
-                        columnFormat= 'dddd'
-                        eventLimit= {true}
                         editable= {false}
                         height={700}
                         themeSystem='bootstrap'
