@@ -1,0 +1,37 @@
+.remarks {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 3.5%;
+}
+
+#remarks-bar div {
+    color: white;
+}
+
+.remark-tag {
+    font-size: 9px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.current-day {
+    background-color: #39C2D7;
+}
+
+.leave-taken {
+    background-color: #B6B6B4;
+}
+
+.leave-pending {
+    background-color: #ff8c00;
+
+}
+
+.leave-approved {
+    background-color: #41a317;
+}
+
+.holiday {
+    background-color: #C04000;
+}

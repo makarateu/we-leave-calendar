@@ -1,0 +1,111 @@
+.App {
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+:root {
+  --bg: #EBF4FA;
+  --text-color: black;
+  --nav-size: 65px;
+  --border: 1px solid grey;
+  --border-radius: 8px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+
+.calendar {
+  padding: 75px;
+  padding-bottom: 40px;
+}
+
+.toggle-weekday {
+  margin-left: 83%;
+  padding: 1%;
+}
+
+.fc-day-today {
+  background: #CCFFFF !important;
+  border: none !important;
+}
+
+.fc-head-container .fc-widget-header{
+  background: #C5C5C5 !important;
+}
+
+.fc button {
+  background: #DCDCDC !important;
+  border-color: #7a78787e !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  color: #000000 !important; 
+}
+
+.fc button:hover {
+  background: #C0C0C0 !important;
+}
+
+.fc button:active{
+  background:#39C2D7 !important;
+}
+
+.fc button:focus-visible{
+  background: #39C2D7 !important;
+  outline: #39C2D7 auto 5px !important;
+}
+
+.fc button:visited {
+  background: #39C2D7 !important;
+  outline: #39C2D7 auto 5px !important;
+}
+
+.item {
+  color: white !important;
+}
+
+
