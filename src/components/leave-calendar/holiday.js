@@ -1,4 +1,4 @@
-[
+export default[ 
     {
         "title": "International New Year Day",
         "startMDT": "01-01T00:00",
@@ -79,4 +79,4 @@
         "startMDT": "12-25T00:00",
         "endMDT": ""
     }
-]
+];

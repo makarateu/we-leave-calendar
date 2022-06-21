@@ -1,0 +1,16 @@
+.title-table{
+    color:#5CC3D8;
+    font-size:30px;
+    text-align: left;
+    margin:50px;
+}
+
+.img-thumbnail {
+    height: auto;
+    max-width: 100%;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left:10% ;
+}

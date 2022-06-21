@@ -1,51 +1,166 @@
 import React from "react";
-import { DataGrid } from '@mui/x-data-grid';
+import "./EmployeeList.css";
+import '@fontsource/roboto/700.css';
+import Helmet from 'react-helmet';
+import Button from '@mui/material/Button';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import MUIDataTable from "mui-datatables";
 
 const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'firstName', headerName: 'First name', width: 130 },
-    { field: 'lastName', headerName: 'Last name', width: 130 },
-    {
-      field: 'age',
-      headerName: 'Age',
-      type: 'number',
-      width: 90,
-    },
-    {
-      field: 'fullName',
-      headerName: 'Full name',
-      description: 'This column has a value getter and is not sortable',
-      sortable: false,
-      width: 160,
-      valueGetter: (params) =>
-        `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-    },
-  ];
-  
-  const rows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-  ];
-  
-  export default function () {
-    return (
-      <div style={{ height: 400, width: '50%', margin: '10%', headerAlign:'center' }}>
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-        />
-        
-      </div>
-    );
+  {
+    name: "#",
+    options: {
+    filter: true,
+    sort: true
   }
-  
+  },
+  {
+  name: "Photo",
+  options: {
+    filter: true,
+    sort: false
+  }
+},
+  {
+    name: "Last Name",
+    options: {
+    filter: true,
+    sort: false
+  }
+  },
+  {
+    name: "First Name",
+    options: {
+    filter: true,
+    sort: false
+  }
+  },
+  {
+    name: "Gender",
+    options: {
+    filter: true,
+    sort: false
+  }
+  },
+  {
+    name: "DOB",
+    options: {
+    filter: true,
+    sort: false
+  }
+  },
+  {
+    name: "Status",
+    options: {
+    filter: true,
+    sort: false
+  }
+  },
+  {
+    name: "Mobile",
+    options: {
+    filter: true,
+    sort: false
+  }
+  },
+  {
+    name: "E-mail",
+    options: {
+    filter: true,
+    sort: false
+  }
+  },
+  {
+    name: "Position",
+    options: {
+    filter: true,
+    sort: false
+  }
+  },
+  {
+    name: "Department",
+    options: {
+    filter: true,
+    sort: false
+  }
+  },
+  {
+  name: "Actions",
+  options: {
+      customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+              //  <Button onClick={() => console.log(value, tableMeta) }>
+                <Button variant="contained" href="EmployeeDetail">
+                  Details
+              </Button>
+          )
+      }
+  }
+  }]
+
+
+const data = [
+  ["Joe James", "Test Corp", "Yonkers", "NY", "M", "22/Apr", "Single", "0123457", "Joe@web-essentials.co", "CEO", "N/A","edit"],
+  ["Joe James", "Test Corp", "Yonkers", "NY", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["Joe James", "Test Corp", "Yonkers", "NY", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["Joe James", "Test Corp", "Yonkers", "NY", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["John Walsh", "Test Corp", "Hartford", "CT", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["Bob Herm", "Test Corp", "Tampa", "FL", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["James Houston", "Test Corp", "Dallas", "TX", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["Joe James", "Test Corp", "Yonkers", "NY", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["John Walsh", "Test Corp", "Hartford", "CT", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["Bob Herm", "Test Corp", "Tampa", "FL", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["James Houston", "Test Corp", "Dallas", "TX", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["Joe James", "Test Corp", "Yonkers", "NY", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["John Walsh", "Test Corp", "Hartford", "CT", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["Bob Herm", "Test Corp", "Tampa", "FL", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit'],
+  ["James Houston", "Test Corp", "Dallas", "TX", "M", '22/Apr', 'Single', '0123457', 'Joe@web-essentials.co', 'CEO', 'N/A','edit']
+];
+
+const options = {
+  filterType: "dropdown",
+  rowsPerPage:[20],
+  rowsPerPageOptions:[5,10,20,50],
+  jumpToPage: true,
+  textLabels:{
+    pagination: {
+      next: "Next >",
+      previous: "< Previous",
+      rowsPerPage: "Total items Per Page",
+      displayRows: "OF"
+    }
+  },
+  onChangePage (currentPage) {
+    console.log({currentPage});
+  },
+  onChangeRowsPerPage (numberOfRows) {
+    console.log({numberOfRows});
+  }
+  };
+
+
+export default class EmployeeList extends React.Component {
+
+render() {
+  return (
+
+<div className="employee-table">
+
+  <Helmet><title>Employee List | Web Essentials</title></Helmet>
+
+
+<Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Tab  label="Employee List" textColor="black"/>
+</Box>
+
+  <MUIDataTable
+    data={data}
+    columns={columns}
+    options={options}
+  />
+
+</div>
+  );
+}
+}

@@ -12,7 +12,50 @@ import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { styled, alpha } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { width } from '@mui/system';
 
+const StyledMenu = styled((props) => (
+    <Menu
+    elevation={0}
+    anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'right',
+    }}
+    transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+    }}
+    {...props}
+    />
+))(({ theme }) => ({
+    '& .MuiPaper-root': {
+    borderRadius: 5,
+    marginTop: theme.spacing(0),
+    minWidth: 180,
+    color:
+        theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
+    boxShadow:
+        'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+        '& .MuiMenu-list': {
+            padding: '4px 0',
+        },
+    },
+}));
+
+const theme = createTheme({
+palette: {
+    primary: {
+    // WE color
+    main: '#3BC2D7',
+    },
+    secondary: {
+    main: '#ff00ff',
+    },
+},
+});
 
 function Header () {
 
@@ -26,24 +69,35 @@ function Header () {
         setAnchorElUser(null);
     };
 
+    const [leave_calendar_header, setLeave_header] = useState(false)
+
+    const showLeave_header = (e) => {
+    if (e.target.className.includes('mobile')) {
+        setLeave_header(true)
+    } else if (e.target.className.includes('desktop')){
+        setLeave_header(false)
+    }
+
+}
+
     return (
-        <AppBar position="fixed" style={{ background: '#F5F5F5' }}>
-            <Container className='container' maxWidth="xl">
+        <AppBar position="fixed" style={{ background: '#F5F5F5'}}>
+            <Container className='container' maxWidth="xxl">
                 <Toolbar disableGutters>
 
-                    <div className='logo'> 
-                        <Menus className='menu-icon'> </Menus>
+                    <Menus className='menu-icon'> </Menus>
+                    <Box className='logo'> 
                         <a className='logo-icon' href='/'><img src={Logo} alt='logo'/></a>
-                    </div>
+                    </Box>
                     
                     
 
                     <Box className='remarks' sx={{ flexGrow: 20 }}>
                         <Tooltip title="Show Remarks">
-                            <h4> <Button className='remark' onClick={handleOpenUserMenu}> Remarks </Button> </h4>
+                            <h4> <ThemeProvider theme={theme}>  <Button className='remark' endIcon={<KeyboardArrowDownIcon />} onClick={handleOpenUserMenu} > Remarks </Button> </ThemeProvider> </h4>
                         </Tooltip>
 
-                        <Menu
+                        <StyledMenu
                             sx={{ mt: '45px' }}
                             id="remarks-bar"
                             anchorEl={anchorElUser}
@@ -75,7 +129,7 @@ function Header () {
                                 <MenuItem onClick={handleCloseUserMenu}>
                                     <Typography className='remark-tag holiday'> PUBLIC HOLIDAY </Typography>
                                 </MenuItem>
-                        </Menu>
+                        </StyledMenu>
                     </Box>
                 </Toolbar>
             </Container>

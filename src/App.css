@@ -29,14 +29,6 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 :root {
   --bg: #EBF4FA;
@@ -59,7 +51,7 @@ a {
 
 
 .calendar {
-  padding: 75px;
+  padding: 50px;
   padding-bottom: 40px;
 }
 

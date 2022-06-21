@@ -4,33 +4,51 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import list from '@fullcalendar/list';
 import Button from '@mui/material/Button';
+import axios from 'axios';
 
 //import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
-
 import "./LeaveCalendar.css";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+//import Holiday from './holiday'
+//import Events from './events'
+//import Events1 from './event1'
+
+const api = axios.create({
+    //baseURL: `https://web-essentials.co/api/v1/employee/:id/leave-request`
+    //baseURL: `http://localhost:3000/events`
+})
+
+const theme = createTheme({
+palette: {
+    primary: {
+    // WE color
+    main: '#3BC2D7',
+    },
+    secondary: {
+    main: '#ff00ff',
+    },
+},
+});
 
 export default class LeaveCalendar extends React.Component {
+
     calendarComponentRef = React.createRef();
 
     state = {
         calendarWeekends: true,
-        calendarEvents: [
-            {
-                title: 'Makara',
-                start: '2022-06-03T10:00:00',
-            },
-            {
-                title: 'Event2',
-                start: '2022-06-07'
-            },
-            {
-                title: 'Event2',
-                start: '2022-06-08'
-            }
-        ]
+
+        calendarEvents: []
     };
+
+    constructor() {
+        super();
+        api.get('/').then(res => {
+            console.log(res.data)
+            this.setState({calendarEvents: res.data})
+        })
+    }
 
     render() {
         return (
@@ -44,8 +62,9 @@ export default class LeaveCalendar extends React.Component {
                         slotMinTime='08:00:00'
                         slotMaxTime='19:00:00'
                         editable= {false}
-                        height={700}
+                        height={750}
                         themeSystem='bootstrap'
+
                         businessHours= {
                             {
                             //(0=Sunday)
@@ -62,13 +81,21 @@ export default class LeaveCalendar extends React.Component {
                         plugins={[dayGridPlugin, timeGridPlugin, list, bootstrap5Plugin]}
                         ref={this.calendarComponentRef}
                         weekends={this.state.calendarWeekends}
+                        eventColor= '#50C878'
+
+                        //get leave events
                         events={this.state.calendarEvents}
+                        
+                        //eventSources = {
+                        //    [Events, Events1]
+                        //}
+
                     
                     />
                 </div>
 
                 <div className="toggle-weekday">
-                    <Button variant="outlined" onClick={this.toggleWeekends}>toggle weekends</Button>
+                    <ThemeProvider theme={theme}> <Button variant="outlined" onClick={this.toggleWeekends}>toggle weekends</Button> </ThemeProvider>
                 </div>
             </div>
         );

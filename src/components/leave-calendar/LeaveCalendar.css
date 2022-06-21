@@ -7,6 +7,20 @@
 .grid {
     margin: 0 auto;
     max-width: 100%;
-    margin-left: 5%;
+    margin-left: 3%;
+    min-height: 100%;
 }
+
+.fc-event-title {
+    font-size: 15px !important;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.fc-event-time {
+    font-size: 12px !important;
+}
+
+
+
 
